@@ -20,7 +20,7 @@ class MotionManager: ObservableObject {
     
     func startUpdates() {
         if self.motionManager.isAccelerometerAvailable {
-            self.motionManager.accelerometerUpdateInterval = 1.0
+            self.motionManager.accelerometerUpdateInterval = 0.25
             self.motionManager.startAccelerometerUpdates(to: OperationQueue.current!) { (data, error) in
                 if let data = data {
                     DispatchQueue.main.async {
@@ -32,7 +32,7 @@ class MotionManager: ObservableObject {
         }
         
         if self.motionManager.isGyroAvailable {
-            self.motionManager.gyroUpdateInterval = 1.0
+            self.motionManager.gyroUpdateInterval = 0.25
             self.motionManager.startGyroUpdates(to: OperationQueue.current!) { (data, error) in
                 if let data = data {
                     DispatchQueue.main.async {
